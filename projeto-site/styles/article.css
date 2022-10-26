@@ -1,0 +1,87 @@
+@import url(../style.css);
+
+aside {
+    padding: 8rem;
+
+}
+
+aside h1 {
+    font-size: 48rem;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    text-shadow: 1rem 1rem 2rem black;
+
+}
+
+aside table {
+    font-size: 24rem;
+    padding: 8rem;
+    border: solid rgb(255, 255, 255);
+    border-radius: 8rem;
+    background: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 32rem; 
+    
+    
+}
+aside table td {
+    padding: 4rem;
+}
+.tablePromotion {
+    color: rgb(0, 0, 0);
+}
+aside p {
+    text-align: center;
+    margin-top: 8rem;
+    font-size: 16rem;
+}
+
+main h1 {
+    font-size: 36rem;
+    color: rgb(255, 255, 255);
+    text-shadow: 1rem 1rem 2rem black;
+    text-align: center;
+    margin-top: 32rem;
+}
+
+.country {
+    display: flex;
+    flex-direction: column;
+    gap: 16rem;
+}
+
+main h2 {
+    margin-top: 32rem;
+    background: linear-gradient(90deg, rgba(79, 40, 151, 0.714), rgba(42, 54, 165, 0.504), white);
+    color: white;
+    width: 100%;
+}
+
+.country img {
+    width: 600rem;
+    height: 100%;
+}
+
+@media (min-width: 480px) {
+    .boxPlans {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+    .boxPlans aside {
+        position: sticky;
+        top:0rem;
+    }
+}
+
+.footerLocal iframe {
+    width: 500rem;
+}
