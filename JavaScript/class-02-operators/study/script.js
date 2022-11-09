@@ -1,3 +1,14 @@
+// console.log((7 +8) / 2)
+// console.log(3 > 2 && 4 < 5)
+// console.log(3 > 2 || 4 < 5)
+// console.log(3 > 2 > 1)
+// console.log(true == 1)
+// console.log(3 > 2 && 2 > 1)
+// console.log(true && true)
+
+console.log(true ==1)
+console.log(true ===1)
+
 // // *Expressions and Operators
 
 
@@ -11,8 +22,8 @@
         // increment ( ++ )
         // decrement ( -- )
 
-        let num1 = '2'
-        let num2 = 2
+        // let num1 = '2'
+        // let num2 = 2
 
         // console.log(num1 + num2)
         // console.log(num1 - num2)
@@ -76,8 +87,8 @@
 // // Operators
 
 // // Binary
-        let n1 = 8
-        let n2 = 7
+        // let n1 = 8
+        // let n2 = 7
 
 
         
@@ -115,13 +126,14 @@
                 
         // console.log( 1 ? 'yes' : 'no')
         // console.log( "" ? 'yes' : 'no')
-        // console.log( "0"? 'yes' : 'no')
+        // console.log("0" ? 'yes' : 'no')
         // console.log( {} ? 'yes' : 'no')
+        // console.log( NaN ? 'yes' : 'no')
         // console.log( null ? 'yes' : 'no')
         // console.log( Infinity ? 'yes' : 'no')
 
 // // Expressions Grouping Operator
-        let total = (2 + 3) * 3
+        // let total = (2 + 3) * 3
         // console.log(total)
 
 
