@@ -28,35 +28,45 @@
 //     console.log("Não pode votar!")
 // }
 
-let weekDay = 2 // 1 - 7
-let day
+// let weekDay = 2 // 1 - 7
+// let day
 
 
-switch (weekDay) {
-    case 1:
-        day = "Domingo"
-        break;
-    case 2:
-        day = "Segunda"
-        break;
-    case 3:
-        day = "Terça-feira"
-        break;
-    case 4:
-        day = "Quarta-feira"
-        break;
-        case 5:
-        day = "Quinta-feira"
-        break;
-        case 6:
-        day = "Sexta-feira"
-        break;
-        case 7:
-        day = "Sábado"
-        break;
+// switch (weekDay) {
+//     case 1:
+//         day = "Domingo"
+//         break;
+//     case 2:
+//         day = "Segunda"
+//         break;
+//     case 3:
+//         day = "Terça-feira"
+//         break;
+//     case 4:
+//         day = "Quarta-feira"
+//         break;
+//         case 5:
+//         day = "Quinta-feira"
+//         break;
+//         case 6:
+//         day = "Sexta-feira"
+//         break;
+//         case 7:
+//         day = "Sábado"
+//         break;
        
 
-    default:
-        day = "Dia não encontrado"
-        break;
+//     default:
+//         day = "Dia não encontrado"
+//         break;
+
+
+// >>>> Try, Catch, Throw <<<<
+
+try {
+myFunction()
+} catch (erro) {
+    console.log(erro)
 }
+
+document.write("Rodando aplicação...") 
