@@ -7,8 +7,8 @@ const numbersMega = []
 let div = document.querySelector('div')
 
 while(numbersMega.length < 6) {
-    let numberDrawn = String(Math.ceil(Math.random() * 60)
-    numbersMega.push(numberDrawn)).padStart(2, 0)
+    let numberDrawn = String(Math.ceil(Math.random() * 60))
+    numbersMega.push(numberDrawn).padStart(2, 0)
 
     if (!numbersMega.includes(numberDrawn)) {
         numbersMega.push(numberDrawn)
