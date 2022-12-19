@@ -1,0 +1,134 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    font-size: 1.6rem;
+    height: 100vh;
+    background-image: url(images/photo-1576678927484-cc907957088c.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    backdrop-filter: brightness(60%);
+}
+
+.container {
+    padding: 1.6rem;
+    
+    
+}
+
+.containerCalc {
+    width: 32.0rem;
+    margin: 7.2rem auto 3.2rem;
+    padding: 3.2rem 1.6rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0.8rem;
+}
+
+header h1 {
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+main section {
+    margin-top: 1.6rem;
+}
+
+label {
+    font-size: 2.0rem;
+    line-height: 3.2rem;
+}
+
+input {
+    width: 100%;
+    padding: 1.0rem;
+    font-size: 2.0rem;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+.calculateButton {
+    width: 100%;
+    margin-top: 2.4rem;
+    padding: 1.0rem;
+
+    font-weight: 600;
+    background: yellow;
+    border: none;
+    border-radius: 0.8rem;
+}
+
+.calculateButton:hover {
+    cursor: pointer;
+    background: rgb(212, 212, 13);
+}
+
+aside {
+    text-align: center;
+    color: orange;
+
+}
+
+aside h2 {
+    margin-top: 2.4rem;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+}
+aside p {
+    font-size: 2.0rem;
+    width: 20.0rem;
+    margin: 0 auto;
+}
+
+.containerModal {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.modal {
+    height: 14.0rem;
+    width: 32.0rem;
+    margin: 0 auto;
+    padding: 3.2rem;
+    border-radius: 0.8rem;
+    box-shadow: 0.1rem 0.1rem 0.4rem black;
+    color: black;
+    font-size: 3.2rem;
+    text-align: center;
+    background: white;
+    position: relative;
+}
+
+.closeButton {
+    position: absolute;
+
+    top: 1.0rem;
+    right: 1.0rem;
+    font-size: 1.8rem;
+    transition: 200ms;
+}
+
+.closeButton:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+footer {
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 4.8rem 0rem 1.6rem;
+}
