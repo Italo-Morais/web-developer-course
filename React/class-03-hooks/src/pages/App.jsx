@@ -1,13 +1,25 @@
-import {useState} from 'react'
-import './App.css'
+import { useEffect } from "react";
+import { useState } from "react";
+import "./App.css";
 
 export function App() {
-  const [name, setName] = useState('Emanuel');
+  const [name, setName] = useState("Emanuel");
   const [count, setCount] = useState(0);
-  const [text, setText] = useState('')
-  const [text2, setText2] = useState('')
+  const [text, setText] = useState("");
+  const [text2, setText2] = useState("");
+  const [data, setData] = useState("");
   // let count = 0;
   // console.log(name);
+  
+  useEffect(() => {
+    if (text2) {
+      fetch(`https://api.github.com/users/${text2}`)
+    .then((response) => response.json())
+    .then(data => setData(data))
+    }
+  }, [text2])
+
+
   return (
     <div className="container">
       {/* <h1>Class Hooks</h1>
@@ -21,17 +33,16 @@ export function App() {
       <form action="">
         <p>Palavra: {text}</p>
         <p>Palavra: {text2}</p>
-        <input type="text" onChange={() => setText(event.target.value)}/>
-        <button onClick={(event) => {event.preventDefault()
-        setText2(text)}}>Enviar</button>
+        <input type="text" onChange={() => setText(event.target.value)} />
+        <button
+          onClick={(event) => {
+            event.preventDefault();
+            setText2(text);
+          }}
+        >
+          Enviar
+        </button>
       </form>
-
-      <section>
-        <h2>{data.name}</h2>
-        <img src={data.avatar_url} alt="" />
-        <p>{data.bio}</p>
-      </section>
     </div>
-  )
+  );
 }
-
