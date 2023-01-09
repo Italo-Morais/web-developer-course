@@ -25,6 +25,12 @@ export function App() {
         <button onClick={(event) => {event.preventDefault()
         setText2(text)}}>Enviar</button>
       </form>
+
+      <section>
+        <h2>{data.name}</h2>
+        <img src={data.avatar_url} alt="" />
+        <p>{data.bio}</p>
+      </section>
     </div>
   )
 }
