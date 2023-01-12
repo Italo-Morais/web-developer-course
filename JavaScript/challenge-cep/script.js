@@ -38,3 +38,9 @@ addEventListener("keypress", (event) => {
     cep.preventDefault();
   }
 });
+
+// Evento que usa regra de expressão para formatar um input
+cep.addEventListener('input', (event) => {
+  let dataPaste = cep.value
+  cep.value = dataPaste.replace(/(\d{5})(\d{3})/, "$1-$2") 
+})
