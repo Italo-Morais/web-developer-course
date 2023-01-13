@@ -1,0 +1,133 @@
+h1 {
+  text-align: center;
+  padding: 2.4rem;
+  font-size: 4.0rem;
+}
+
+form {
+  margin-top: .8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 3.2rem;
+}
+
+.srOnly {
+  position: absolute;
+  width: 0.1rem;
+  height: 0.1rem;
+  overflow: hidden;
+  color: transparent;
+}
+
+form input {
+  border: none;
+  border-radius: .4rem;
+  font-size: 2.0rem;
+  padding: .8rem 1.2rem;
+  width: 100%;
+  
+  background: rgba(128, 128, 128, 0.3);
+  color: white;
+}
+
+.searchButton {
+  border: none;
+  border-radius: .4rem;
+  padding: .8rem 1.2rem;
+  font-size: 2.0rem;
+
+  background: #106cc4;
+  color: white;
+
+}
+
+.searchButton:hover {
+  cursor: pointer;
+  background: #185d9e;
+
+}
+
+.searchIcon {
+  color: gray;
+  font-size: 2.4rem;
+  position: relative;
+  left: -3.2rem;
+}
+
+main {
+  padding: 1.6rem 3.2rem;
+}
+
+.blockCityName {
+  text-align: left;
+}
+
+.blockCurrentTime {
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  background: rgba(128, 128, 128, 0.3);
+  padding: .8rem;
+  border-radius: 1.6rem;
+}
+
+.blockDegree {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.degreeCurrent {
+  font-size: 6.4rem;
+  padding: .8rem;
+}
+
+.iconThermometer {
+  font-size: 4.2rem;
+}
+
+.degreeMaxMin {
+  display: flex;
+  flex-direction: column;
+  border-left: 0.2rem solid gray;
+  padding: .2rem .8rem;
+}
+
+.degreeMin {
+  color: gray;
+}
+
+.blockSituation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 2.4rem;
+}
+
+.containerWeatherCondition {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 1.6rem;
+}
+
+.containerWeatherForecast ol {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+footer {
+  text-align: center;
+  padding: 1.6rem;
+}
+
+
+
