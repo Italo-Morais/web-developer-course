@@ -1,0 +1,19 @@
+.containerWeatherCondition {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 9.2rem;
+    height: 9.2rem;
+    background: rgba(128, 128, 128, 0.3);
+    border-radius: 50%;
+}
+
+.containerWeatherCondition p {
+    font-weight: 600;
+}
+
+.containerWeatherCondition h4 {
+    font-size: 1.6rem;
+    font-weight: 400;
+}

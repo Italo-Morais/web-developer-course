@@ -1,13 +1,43 @@
+import { useState, useEffect } from "react" 
 import { BsThermometerHigh } from "react-icons/bs";
 import { GrSearch } from "react-icons/gr";
+import { ClimateCard } from "../components/ClimateCard"
 import "./style.css";
 
 export function App() {
+  const [searchedCity, setSearchedCity] = useState('jucas')
+  const [inputCity, setInputCity] = useState('')
+  const [weatherData, setWeatherData] = useState(null)
+  
+
+  async function getCityWeather() {
+    const response = await fetch(API)
+    console.log(response)
+
+      if (response.status == 200) {
+        const data = await response.json()
+        console.log(data)
+        setWeatherData(data)
+      } else if (response.status == 400) {
+        alert('Cidade não encontrada')
+      }
+  }
+
+  function searchCity(event) {
+    event.preventDefault()
+    setSearchedCity(inputCity)
+  }
+
+  useEffect(() => {
+    getCityWeather()
+  }, [searchedCity])
+
+  const API = `https://api.weatherapi.com/v1/forecast.json?key=fb85b303e1fe4286a2b15407223112&q=${searchedCity}&days=4&lang=pt`
   return (
     <div className="container">
       <header>
         <h1>Previsão do Tempo</h1>
-        <form action="buscar">
+        <form action="buscar" onSubmit={searchCity}>
           <label htmlFor="citySearchInput" className="srOnly">
             Pesquisar nome da cidade
           </label>
@@ -15,7 +45,8 @@ export function App() {
             type="text"
             id="citySearchInput"
             placeholder="Nome da cidade"
-          />
+            onChange={(event) => setInputCity(event.target.value)}
+            />
           <GrSearch className="searchIcon" />
           <button className="searchButton">Buscar</button>
         </form>
@@ -46,7 +77,7 @@ export function App() {
             </div>
           </section>
           <section className="containerWeatherCondition">
-            {/* Component */}
+            < ClimateCard />
           </section>
           <section className="containerWeatherForecast">
             <ol>
