@@ -1,38 +1,46 @@
-import { useState, useEffect } from "react" 
+import { useState, useEffect } from "react";
 import { BsThermometerHigh } from "react-icons/bs";
 import { GrSearch } from "react-icons/gr";
-import { ClimateCard } from "../components/ClimateCard"
+import { ClimateCard } from "../components/ClimateCard";
 import "./style.css";
 
 export function App() {
-  const [searchedCity, setSearchedCity] = useState('jucas')
-  const [inputCity, setInputCity] = useState('')
-  const [weatherData, setWeatherData] = useState(null)
-  
+  const [searchedCity, setSearchedCity] = useState("jucas");
+  const [inputCity, setInputCity] = useState("");
+  const [weatherData, setWeatherData] = useState(null);
+  const [dateNOW, setDateNow] = useState()
 
   async function getCityWeather() {
-    const response = await fetch(API)
-    console.log(response)
-
-      if (response.status == 200) {
-        const data = await response.json()
-        console.log(data)
-        setWeatherData(data)
-      } else if (response.status == 400) {
-        alert('Cidade não encontrada')
-      }
+    const response = await fetch(API);
+    if (response.status == 200) {
+      const data = await response.json();
+      console.log(data);
+      setWeatherData(data);
+    } else if (response.status == 400) {
+      alert("Cidade não encontrada");
+    }
   }
 
   function searchCity(event) {
-    event.preventDefault()
-    setSearchedCity(inputCity)
+    event.preventDefault();
+    setSearchedCity(inputCity);
   }
 
   useEffect(() => {
-    getCityWeather()
-  }, [searchedCity])
+    getCityWeather();
+  }, [searchedCity]);
 
-  const API = `https://api.weatherapi.com/v1/forecast.json?key=fb85b303e1fe4286a2b15407223112&q=${searchedCity}&days=4&lang=pt`
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDateNow(new Date().toLocaleString())
+    }, 1000);
+
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
+
+  const API = `https://api.weatherapi.com/v1/forecast.json?key=fb85b303e1fe4286a2b15407223112&q=${searchedCity}&days=4&lang=pt`;
   return (
     <div className="container">
       <header>
@@ -46,45 +54,52 @@ export function App() {
             id="citySearchInput"
             placeholder="Nome da cidade"
             onChange={(event) => setInputCity(event.target.value)}
-            />
+          />
           <GrSearch className="searchIcon" />
           <button className="searchButton">Buscar</button>
         </form>
       </header>
       <main>
-        <article>
-          <section className="blockCityName">
-            <h2>Jucás, Ceará</h2>
-            <p>Brasil, 11/01/2023 15:41:59</p>
-          </section>
-          <section className="blockCurrentTime">
-            <div className="currentTime">
-              <div className="blockDegree">
-                <BsThermometerHigh className="iconThermometer" />
-                <p className="degreeCurrent">35.6°</p>
-                <p className="degreeMaxMin">
-                  <span className="degreeMax">38.9°</span>
-                  <span className="degreeMin">28.7°</span>
-                </p>
-              </div>
-              <div className="blockSituation">
-                <img src="#" alt="icon" />
-                <div>
-                  <p>Pacialmente Sol quente</p>
-                  <p>Sensação térmica de 37.2°</p>
+        {searchedCity && weatherData && (
+          <article>
+            <section className="blockCityName">
+              <h2>{weatherData.location.name}, {weatherData.location.region}</h2>
+              <p>{weatherData.location.country}, {} 15:41:59</p>
+            </section>
+            <section className="blockCurrentTime">
+              <div className="currentTime">
+                <div className="blockDegree">
+                  <BsThermometerHigh className="iconThermometer" />
+                  <p className="degreeCurrent">{weatherData.current.temp_c}</p>
+                  <p className="degreeMaxMin">
+                    <span className="degreeMax">{weatherData.forecast.forecastday[0].day.maxtemp_c}</span>
+                    <span className="degreeMin">{weatherData.forecast.forecastday[0].day.mintemp_c}</span>
+                  </p>
+                </div>
+                <div className="blockSituation">
+                  <img src={weatherData.current.condition.icon} alt="icon" />
+                  <div>
+                    <p>{weatherData.current.condition.text}</p>
+                    <p>Sensação térmica de {weatherData.current.feelslike_c}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-          <section className="containerWeatherCondition">
-            < ClimateCard />
-          </section>
-          <section className="containerWeatherForecast">
-            <ol>
-              <li>Component 'Map'</li>
-            </ol>
-          </section>
-        </article>
+            </section>
+            <section className="containerWeatherCondition">
+              <ClimateCard climate={'Vento'} condition= {`${weatherData.current.wind_kph}km/h`} />
+              <ClimateCard climate={'Umidade'} condition= {`${weatherData.hour.humidity}%`} />
+              <ClimateCard climate={'Chuva'} condition= {`${weatherData.hour[0].precip_mm}%`} />
+              
+              
+              
+            </section>
+            <section className="containerWeatherForecast">
+              <ol>
+                <li>Component 'Map'</li>
+              </ol>
+            </section>
+          </article>
+        )}
       </main>
       <footer>
         <p>Web Development Course - Jucás</p>

@@ -1,4 +1,4 @@
-.containerWeatherCondition {
+.weatherCondition {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,11 +9,11 @@
     border-radius: 50%;
 }
 
-.containerWeatherCondition p {
+.weatherCondition p {
     font-weight: 600;
 }
 
-.containerWeatherCondition h4 {
-    font-size: 1.6rem;
+.weatherCondition h4 {
     font-weight: 400;
+    font-size: 1.6rem;
 }

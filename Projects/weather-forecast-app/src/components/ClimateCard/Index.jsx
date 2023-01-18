@@ -2,7 +2,7 @@ import "./Style.css"
 
 export function ClimateCard({climate, condition}) {
     return (
-        <div className="containerWeatherCondition">
+        <div className="weatherCondition">
             <p>{condition}</p>
             <h4>{climate}</h4>
         </div>
