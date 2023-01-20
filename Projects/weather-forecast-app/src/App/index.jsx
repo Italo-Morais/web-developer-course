@@ -2,13 +2,15 @@ import { useState, useEffect } from "react";
 import { BsThermometerHigh } from "react-icons/bs";
 import { GrSearch } from "react-icons/gr";
 import { ClimateCard } from "../components/ClimateCard";
+import { ForecastCard } from "../components/ForecastCard";
+
 import "./style.css";
 
 export function App() {
   const [searchedCity, setSearchedCity] = useState("jucas");
   const [inputCity, setInputCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
-  const [dateNOW, setDateNow] = useState()
+  const [dateNow, setDateNow] = useState();
 
   async function getCityWeather() {
     const response = await fetch(API);
@@ -32,13 +34,13 @@ export function App() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setDateNow(new Date().toLocaleString())
+      setDateNow(new Date().toLocaleString());
     }, 1000);
 
     return () => {
-      clearInterval(timer)
-    }
-  }, [])
+      clearInterval(timer);
+    };
+  }, []);
 
   const API = `https://api.weatherapi.com/v1/forecast.json?key=fb85b303e1fe4286a2b15407223112&q=${searchedCity}&days=4&lang=pt`;
   return (
@@ -63,8 +65,12 @@ export function App() {
         {searchedCity && weatherData && (
           <article>
             <section className="blockCityName">
-              <h2>{weatherData.location.name}, {weatherData.location.region}</h2>
-              <p>{weatherData.location.country}, {} 15:41:59</p>
+              <h2>
+                {weatherData.location.name}, {weatherData.location.region}
+              </h2>
+              <p>
+                {weatherData.location.country} {dateNow},
+              </p>
             </section>
             <section className="blockCurrentTime">
               <div className="currentTime">
@@ -72,8 +78,12 @@ export function App() {
                   <BsThermometerHigh className="iconThermometer" />
                   <p className="degreeCurrent">{weatherData.current.temp_c}</p>
                   <p className="degreeMaxMin">
-                    <span className="degreeMax">{weatherData.forecast.forecastday[0].day.maxtemp_c}</span>
-                    <span className="degreeMin">{weatherData.forecast.forecastday[0].day.mintemp_c}</span>
+                    <span className="degreeMax">
+                      {weatherData.forecast.forecastday[0].day.maxtemp_c}
+                    </span>
+                    <span className="degreeMin">
+                      {weatherData.forecast.forecastday[0].day.mintemp_c}
+                    </span>
                   </p>
                 </div>
                 <div className="blockSituation">
@@ -86,16 +96,41 @@ export function App() {
               </div>
             </section>
             <section className="containerWeatherCondition">
-              <ClimateCard climate={'Vento'} condition= {`${weatherData.current.wind_kph}km/h`} />
-              <ClimateCard climate={'Umidade'} condition= {`${weatherData.hour.humidity}%`} />
-              <ClimateCard climate={'Chuva'} condition= {`${weatherData.hour[0].precip_mm}%`} />
-              
-              
-              
+              <ClimateCard
+                climate={"Vento"}
+                condition={`${weatherData.current.wind_kph}km/h`}
+              />
+              <ClimateCard
+                climate={"Umidade"}
+                condition={`${weatherData.current.humidity}%`}
+              />
+              <ClimateCard
+                climate={"Chuva"}
+                condition={`${weatherData.current.precip_mm}mm`}
+              />
             </section>
             <section className="containerWeatherForecast">
               <ol>
-                <li>Component 'Map'</li>
+                {weatherData.forecast.forecastday.map((forecastDay, index) => {
+                  return (
+                    <li key={index}>
+                      <ForecastCard
+                        day={
+                          index == 0
+                            ? "Hoje"
+                            : Intl.DateTimeFormat("pt-BR", { weekday: 'long' }).format(
+                                new Date(
+                                  forecastDay.date.split("-").join("/")
+                                )
+                              )
+                        }
+                        icon={forecastDay.day.condition.icon}
+                        tempMax={forecastDay.day.maxtemp_c}
+                        tempMin={forecastDay.day.mintemp_c}
+                      />
+                    </li>
+                  );
+                })}
               </ol>
             </section>
           </article>

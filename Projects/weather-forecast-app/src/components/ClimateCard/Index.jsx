@@ -1,4 +1,4 @@
-import "./Style.css"
+import "./style.css"
 
 export function ClimateCard({climate, condition}) {
     return (
