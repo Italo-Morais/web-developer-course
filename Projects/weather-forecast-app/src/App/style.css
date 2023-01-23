@@ -148,5 +148,16 @@ footer {
   padding: 1.6rem;
 }
 
+/* @media (max-width: 365px) {
+  form {
+    padding: 0 2.2rem;
+  }
+  
+  main {
+    padding: 1.6rem 2.2rem;
+  }
+}
+   */
+
 
 
