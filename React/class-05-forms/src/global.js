@@ -1,5 +1,3 @@
 export class GlobalVariables {
-  static user = {
-  nome: 'italo'
-  }
+  static user = {}
 }

@@ -1,7 +1,6 @@
-
-import reactLogo from './assets/react.svg'
 import './App.css'
 import { UserData } from './components/userData';
+import { GlobalVariables } from './global';
 
  export default function App() {
 
@@ -27,7 +26,7 @@ import { UserData } from './components/userData';
     }
     console.log(userData)
     console.log(JSON.stringify(userData));
-    GlobalVariables.user
+    GlobalVariables.user = userData
   }
   return (
     <div className="App">
