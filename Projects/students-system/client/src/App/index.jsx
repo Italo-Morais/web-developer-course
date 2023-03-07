@@ -1,12 +1,19 @@
-import { Home } from '../pages/Home'
-import { Container } from './style'
+import { Outlet } from "react-router-dom";
+import { Menu } from "../components/Menu";
+import { Container } from "./style";
 
 export function App() {
   return (
-     <div className="App">
-    <Home>
-      <h1>OlÁ mUNDO !</h1>
-    </Home>
-    </div>
-  )
+    <Container>
+      <header>
+        <Menu />
+      </header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>
+        <p>Web Developer Course</p>
+      </footer>
+    </Container>
+  );
 }

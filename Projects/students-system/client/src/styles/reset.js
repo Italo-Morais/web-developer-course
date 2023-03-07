@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+export const ResetStyle = createGlobalStyle`
     :root {
       font-size: 62.5%;
     }

@@ -1,10 +1,10 @@
 import { Container } from './styled' 
 
-export function Home() {
+export function About() {
   return (
      <div className="Home">
     <Container>
-      <h1>Home</h1>
+      <h1>About</h1>
     </Container>
     </div>
   )
