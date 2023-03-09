@@ -1,0 +1,21 @@
+{
+  "name": "exercise",
+  "version": "1.0.0",
+  "description": "Node Exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "keywords": [],
+  "author": "Italo Morais",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.10.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "prisma": "^4.10.1"
+  }
+}
