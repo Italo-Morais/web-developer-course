@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
-  .container {
+  /* .container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,6 +23,6 @@ export const Container = styled.div`
   h1 {
     color: ${({ theme }) => theme.colors.neutral9};
     text-align: center;
-    margin-top: 1.8rem;
-  }
+    margin-top: 2.0rem;
+  } */
 `;

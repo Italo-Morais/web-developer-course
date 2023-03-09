@@ -9,6 +9,7 @@ export const Container = styled.div`
   width: 100%;
   padding: 2.4rem;
   background: ${({ theme }) => theme.colors.background};
+  border-bottom: .4rem solid ${({ theme }) => theme.colors.neutral8};
 
   button {
     background: none;
