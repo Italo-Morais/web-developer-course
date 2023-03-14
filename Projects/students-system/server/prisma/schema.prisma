@@ -12,7 +12,7 @@ model students {
   name       String    @db.VarChar(255)
   email      String    @unique(map: "email") @db.VarChar(255)
   phone      String    @db.VarChar(255)
-  password   String    @db.VarChar(255)
-  created_at DateTime @default(now()) @db.DateTime(0)
-  updated_at DateTime @default(now()) @db.DateTime(0) @updatedAt
+  city       String    @db.VarChar(255)
+  created_at DateTime? @default(now()) @db.DateTime(0)
+  updated_at DateTime? @default(now()) @updatedAt @db.DateTime(0)
 }
