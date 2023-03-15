@@ -25,9 +25,12 @@ export function FormRegister() {
     axios
       .post(API, data)
       .then((res) => {
-        alert("Cadastro realizado com sucesso");
+        alert(res.data);
         reset();
+        setName("");
         setPhone("");
+        setEmail("");
+        setCity("");
       })
       .catch((err) => alert(err.response.data));
   }

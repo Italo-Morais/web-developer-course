@@ -39,7 +39,7 @@ module.exports = {
       if (studentEmail) return res.status(400).json("Email already registered");
 
       await prisma.students.create({ data: { name, email, city, phone } });
-      return res.status(400).json('Student created');
+      return res.status(201).json('Student created');
 
     } catch (error) {
       console.log(error);
@@ -72,7 +72,7 @@ module.exports = {
         data: { name, email, city, phone },
         where: { id: Number(id) } 
       });
-      return res.status(400).json('Student updated');
+      return res.status(201).json('Student updated');
     } catch (error) {
       console.log(error);
     }
@@ -84,7 +84,7 @@ module.exports = {
       if(!student) return res.status(404).json("Student not found");
 
       await prisma.students.delete({ where: { id: Number(id) } });
-      return res.status(400).json('Student deleted');
+      return res.status(201).json('Student deleted');
     } catch (error) {
       console.log(error);
     }

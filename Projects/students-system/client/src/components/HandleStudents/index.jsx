@@ -13,7 +13,7 @@ export function HandleStudents() {
   function fetchStudents() {
     axios.get(API)
       .then((res) => setListStudents(res.data))
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   }
 
   useEffect(() => {

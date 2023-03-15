@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-.titleSearch {
+export const Container = styled.section`
+    .titleSearch {
         display: flex;
         align-items: center;
         justify-content: space-between;
