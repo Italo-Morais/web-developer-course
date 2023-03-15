@@ -2,25 +2,36 @@ import { Container } from "./style";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
+import axios from "axios";
 
 export function FormRegister() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [city, setCity] = useState("");
+  const [phone, setPhone] = useState("");
+
   const {
     register,
     handleSubmit,
-    formState: { errors },
     reset,
+    formState: { errors },
   } = useForm();
+
+  const API = "http://localhost:3000/students";
+
   function onSubmit(data) {
     console.log(data);
-    console.log(data);
-    alert("Cadastro realizado com sucesso");
-    reset();
+
+    axios
+      .post(API, data)
+      .then((res) => {
+        alert("Cadastro realizado com sucesso");
+        reset();
+        setPhone("");
+      })
+      .catch((err) => alert(err.response.data));
   }
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   return (
     <div>
@@ -61,15 +72,18 @@ export function FormRegister() {
           </section>
           <section>
             <label htmlFor="phone">Telefone: </label>
-            <InputMask mask={'(99) 99999-9999'} id="phone"
+            <InputMask
+              mask={"(99) 99999-9999"}
+              id="phone"
               type="tel"
-              {...register("tel", { required: true })}
-              name="tel"
+              {...register("phone", { required: true })}
+              name="phone"
               placeholder="(00) 00000-0000"
+              value={phone}
+              onChange={(event) => setPhone(event.target.value)}
               // required
-              
             />
-            {errors.tel && <span className="error">Campo obrigatório!</span>}
+            {errors.phone && <span className="error">Campo obrigatório!</span>}
           </section>
           <section>
             <label htmlFor="city">Cidade: </label>
@@ -79,46 +93,12 @@ export function FormRegister() {
               {...register("city", { required: true })}
               name="city"
               placeholder="City"
+              value={city}
+              onChange={(event) => setCity(event.target.value)}
               // required
-            
             />
             {errors.city && <span className="error">Campo obrigatório!</span>}
           </section>
-          <section>
-            <label htmlFor="password">Senha: </label>
-            <input
-              type="password"
-              id="password"
-              {...register("password", { required: true })}
-              name="password"
-              placeholder="Password"
-              maxLength={"10"}
-              // required
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
-            {errors.password && (
-              <span className="error">Campo obrigatório!</span>
-            )}
-          </section>
-          <section>
-            <label htmlFor="confirmPassword">Confirm: </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              {...register("confirmPassword", { required: true })}
-              name="confirmPassword"
-              placeholder="Confirm Password"
-              maxLength={'10'}
-              // required
-              value={confirmPassword}
-              onChange={(event) => setConfirmPassword(event.target.value)}
-            />
-          </section>
-
-          {errors.confirmPassword && (
-            <span className="error">Campo obrigatório!</span>
-          )}
           <button type="submit">Cadastrar</button>
         </form>
       </Container>
