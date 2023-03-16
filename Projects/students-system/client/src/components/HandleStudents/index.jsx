@@ -1,17 +1,33 @@
 import { Container } from "./style";
-import axios from 'axios';
+import axios from "axios";
 import { useEffect, useState } from "react";
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 import { BsSearch } from "react-icons/bs";
 import { BiEdit } from "react-icons/bi";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { FormUpdate } from "../FormUpdate/index"
 
 export function HandleStudents() {
   const [listStudents, setListStudents] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [studentData, setStudentData] = useState([]);
+
+  const modalOpen = (studentID ) =>  {
+    setShowModal(true)
+    const student = listStudents.findIndex(student => student.id == studentID)
+    setStudentData(listStudents[student]);
+  };
+
+  console.log(studentData);
+
+    const modalClose = () => setShowModal(false);
 
   const API = "http://localhost:3000/students";
 
   function fetchStudents() {
-    axios.get(API)
+    axios
+      .get(API)
       .then((res) => setListStudents(res.data))
       .catch((error) => console.error(error));
   }
@@ -28,13 +44,9 @@ export function HandleStudents() {
         <section className="titleSearch">
           <h1>Alunos</h1>
           <div>
-            <input 
-            type="text" 
-            id="inputSearchStudent" 
-            placeholder=""
-            />
+            <input type="text" id="inputSearchStudent" placeholder="Buscar Aluno" />
             <label htmlFor="inputSearchStudent" className="labelInputSearch">
-              Buscar aluno 
+              Buscar aluno
             </label>
             <BsSearch className="searchIcon" />
           </div>
@@ -60,13 +72,23 @@ export function HandleStudents() {
                       <td>{students.phone}</td>
                       <td>{students.city}</td>
                       <td>
-                        <BiEdit className="editIcon" />
+                        <BiEdit className="editIcon" onClick={() => modalOpen(students.id)}/>
                       </td>
                     </tr>
                   );
                 })}
             </tbody>
           </Table>
+        </section>
+        <section>
+          <Modal show={showModal} onHide={modalClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Aluno</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <FormUpdate modalClose={modalClose} studentData={studentData}/>
+              </Modal.Body>
+          </Modal>
         </section>
       </article>
     </Container>
