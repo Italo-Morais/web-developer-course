@@ -4,7 +4,7 @@ import { Container } from "./styled"
 export function Register() {
   return (
     <Container>
-      <h1>Form Register</h1>
+      <h1>Cadastrar Aluno</h1>
       <FormRegister />
     </Container>
   )
