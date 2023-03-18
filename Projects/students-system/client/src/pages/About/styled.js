@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  h1 {
-    color: ${({theme}) => theme.colors.neutral9};
-  }
+export const Container = styled.div `
+    padding: 1rem;
 `;

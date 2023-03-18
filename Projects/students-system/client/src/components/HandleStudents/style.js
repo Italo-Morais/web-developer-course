@@ -1,14 +1,17 @@
 import styled from "styled-components";
 
-export const Container = styled.section`
+export const Container = styled.section `
+
     .titleSearch {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
+
     .inputSection {
         position: relative;
     }
+
     .labelInputSearch {
         position: absolute;
         bottom: .2rem;
@@ -19,6 +22,7 @@ export const Container = styled.section`
         color: ${({theme}) => theme.colors.neutralA};
         font-size: 1.2rem;
     }
+
     .srOnly {
         position: absolute;
         width: 0.1rem;
@@ -49,6 +53,7 @@ export const Container = styled.section`
         background: white;
         color: ${({theme}) => theme.colors.neutral6};
     }
+
     .searchIcon {
         position: absolute;
         bottom: .8rem;
@@ -56,22 +61,28 @@ export const Container = styled.section`
         font-size: 1.0rem;
         color: ${({theme}) => theme.colors.neutral8};
     }
+
     .tableStudents {
         margin-top: 1.6rem;
     }
+
     .tableStudents table {
         font-size: .8rem;
     }
+
     th, td {
         text-align: center;
     }
+
     tr td:nth-child(2) {
         text-align: start;
     }
+
     .editIcon {
         font-size: 1.2rem;
         cursor: pointer;
     }
+    
     .form-modal {
         color: red;
     }
