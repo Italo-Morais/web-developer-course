@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 4.8rem;
+  font-family: "Inter", sans-serif;
+  background: #0D0D0D;
+}
+
+.to {
+  font-family: "Inter", sans-serif;
+  font-size: 4.0rem;
+  font-weight: 900;
+  line-height: 4.8rem;
+  letter-spacing: 0em;
+  text-align: left;
+
+  color : #4EA8DE;
+
+}
+
+.do {
+  font-family: "Inter", sans-serif;
+  font-size: 4.0rem;
+  font-weight: 900;
+  line-height: 4.8rem;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #5E60CE;
+
+}
+
+.rocket {
+  font-size: 4.0rem;
+  margin-top: 0.6rem;
+  color: #4EA8DE;
+}
+
+body {
+  background: #1A1A1A;
+}
