@@ -1,19 +1,19 @@
+import { Container } from "./style";
 import { Outlet } from "react-router-dom";
 import { Header } from "../components/Header";
-import { Container } from "./style";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export function App() {
   return (
     <Container>
       <header>
-        <Header/>
+        <Header />
       </header>
       <main>
         <Outlet />
       </main>
       <footer>
-        <p>Web Developer Course</p>
+        <p>Web Developement Course</p>
       </footer>
     </Container>
   );
